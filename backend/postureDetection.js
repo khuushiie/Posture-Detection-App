@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const axios = require('axios');
-const { spawn } = require('child_process');
+const { spawn, execSync } = require('child_process');
 
 async function analyzePosture(videoUrl, io) {
   console.log('Analyzing video:', videoUrl);
@@ -37,6 +37,15 @@ async function analyzePosture(videoUrl, io) {
   console.log('Video downloaded to:', tempPath);
 
   return new Promise((resolve, reject) => {
+    try {
+      const requirementsPath = path.join(__dirname, 'python_analyzer/requirements.txt');
+      console.log('Installing Python dependencies...');
+      execSync(`pip install -r ${requirementsPath}`, { stdio: 'inherit' });
+      console.log('Python dependencies installed');
+    } catch (installErr) {
+      console.error('Failed to install Python packages:', installErr.message);
+      throw new Error('Python environment not configured on server');
+    }
     const pythonProcess = spawn('python', [
       path.join(__dirname, 'python_analyzer/analyze_video.py'),
       tempPath,
