@@ -49,7 +49,8 @@ async function analyzePosture(videoUrl, io) {
     });
 
     pythonProcess.stderr.on('data', (data) => {
-      console.error(`Python error: ${data.toString()}`);
+      const errorStr = data.toString();
+      console.error(`Python STDERR: ${errorStr}`);
     });
 
     pythonProcess.on('close', (code) => {

@@ -57,6 +57,7 @@ function VideoUpload({ onFeedback, fileInputRef, setIsUploading, setUploadedVide
       }
 
       console.log('Backend response:', responseData);
+      onFeedback(responseData);
     } catch (error) {
       console.error(error);
       setError(error.message);

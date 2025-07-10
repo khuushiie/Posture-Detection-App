@@ -87,14 +87,14 @@ def analyze(video_path):
     pose.close()
 
     grouped_feedback = []
-    for frame in sorted(feedback_dict.keys())[:4]:  # Show only first 6 frames with issues
+    for frame in sorted(feedback_dict.keys())[:4]: 
         grouped_feedback.append({
             "frame": frame,
             "issues": feedback_dict[frame]
         })
 
-    sys.stdout.write(json.dumps(grouped_feedback))
-    sys.stdout.flush()
+    print(json.dumps(grouped_feedback))
+
 
 
 if __name__ == "__main__":
