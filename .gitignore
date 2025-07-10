@@ -1,0 +1,21 @@
+# Node.js (backend)
+backend/node_modules/
+backend/.env
+backend/posture-env
+backend/temp/
+
+# React (frontend)
+frontend/node_modules/
+frontend/.env
+frontend/dist/
+
+# Common entries
+node_modules/
+.env
+dist/
+temp/
+*.log
+__pycache__/
+*.pyc
+.DS_Store
+
