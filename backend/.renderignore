@@ -1,0 +1,23 @@
+# Exclude frontend files
+frontend
+
+# Exclude temp and local folders
+temp
+node_modules
+python_analyzer
+posture-env
+__pycache__/
+
+# Exclude config & local-only files
+README.md
+.gitignore
+.env
+.env.local
+.vscode
+*.log
+
+# Optional: exclude test files or large sample videos
+*.mp4
+*.webm
+*.avi
+tests/
