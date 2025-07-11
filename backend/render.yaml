@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: posture-detection-app
+    name: backend
     env: node
     buildCommand: ./build.sh && npm install
     startCommand: node server.js
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.10
+    runtime: node
+    region: oregon
+    plan: free
