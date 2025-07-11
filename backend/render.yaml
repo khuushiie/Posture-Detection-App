@@ -2,8 +2,9 @@ services:
   - type: web
     name: backend
     env: node
+    build:
+      pythonVersion: 3.10
     buildCommand: ./build.sh && npm install
     startCommand: node server.js
-    runtime: node
     region: oregon
     plan: free
